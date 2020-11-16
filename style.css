@@ -1,0 +1,234 @@
+/* Google Font "Roboto" */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/* Basic Styling */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+
+i,
+svg {
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/* Navbar Styling */
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  background-image: linear-gradient(to right, #ff83d5, #2971ff, #ffccb0);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Sequencer Styling */
+
+.sequencer-bg {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, #3b4679, #2b3153);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sequencer-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: 100vh;
+  background-image: url("images/bg-pat.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.sequencer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* Kick pads  */
+
+.kick-pad,
+.snare-pad,
+.hihat-pad {
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+}
+
+.kick-pad {
+  background-color: #ff83d5;
+}
+
+.snare-pad {
+  background-color: #2971ff;
+}
+
+.hihat-pad {
+  background-color: #ffccb0;
+}
+.kick-pad.active {
+  background-color: #9b2b75;
+}
+
+.snare-pad.active {
+  background-color: #0f3583;
+}
+
+.hihat-pad.active {
+  background-color: #cc794d;
+}
+
+.hihat-track,
+.snare-track,
+.kick-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.hihat,
+.kick,
+.snare {
+  display: flex;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+.controls > * {
+  margin: 0 10px;
+}
+
+.controls button {
+  padding: 1rem;
+  border: none;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.pad {
+  transition: all 0.3s ease;
+}
+
+select {
+  padding: 1rem;
+  font-size: 1rem;
+}
+.mute.active {
+  background-color: rgb(139, 139, 139);
+}
+
+.play {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-image: linear-gradient(to right, #ff83d5, #2971ff, #ffccb0);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 3rem;
+  border-radius: 50px;
+  animation: hue-shift 1.5s infinite alternate;
+}
+
+.tempo {
+  margin: 3rem;
+  width: 30%;
+}
+.tempo-slider {
+  padding: 0.2rem;
+  -webkit-appearance: none;
+  margin: 1rem 0;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 1rem;
+  outline: none;
+}
+
+.tempo p {
+  font-size: 1.5rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+@keyframes playTrack {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes hue-shift {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
